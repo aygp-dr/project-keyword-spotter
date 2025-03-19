@@ -1,0 +1,110 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env
+.venv
+.env.*
+
+# Poetry
+poetry.lock
+
+# Unit tests / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+.org-id-locations
+*_archive
+*_flymake.*
+/eshell/history
+/eshell/lastdir
+/elpa/
+\#*
+.\#*
+*.rel
+.dir-locals.el
+/url/
+/var/
+/server/
+.projectile
+.dir-locals.el
+
+# Edge TPU specific
+install.log*
+.edgetpu_installed
+.poetry_installed
+.venv/
+.downloaded
+
+# Temporary files
+data/log_analyzer/anomalies/
+data/log_analyzer/tmp/
+tmp/
+temp/
+
+# Logs
+logs/
+*.log
+
+# Project-specific files
+models/imagenet_labels.txt
+models/mobilenet_v2_1.0_224_quant_edgetpu.tflite
+models/parrot.jpg
+models/log_analyzer/*.tflite
+models/log_analyzer/*.pkl
+
+# Misc
+.DS_Store
+Thumbs.db
