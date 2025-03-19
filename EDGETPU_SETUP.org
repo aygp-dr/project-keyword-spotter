@@ -1,0 +1,63 @@
+#+TITLE: Edge TPU Setup Summary
+#+AUTHOR: Aidan Pace
+#+DATE: [2025-03-19 Wed]
+
+* Environment Information
+- Platform: Raspberry Pi 4
+- Operating System: Debian bookworm (Raspberry Pi OS)
+- Python version: 3.9.18 (using Poetry virtual environment)
+- Project location: =/home/aygp-dr/opt/project-keyword-spotter=
+
+* Current Status
+Our diagnostic script =check_edgetpu_status.py= detected the following issues:
+
+** TensorFlow Lite Runtime Version Mismatch
+- Current version: 2.14.0
+- Recommended version for Edge TPU: 2.5.0.post1
+- This may cause compatibility issues with the Edge TPU models
+
+** Coral USB Device Not Detected
+- The script could not find a Coral USB Accelerator connected to the system
+- This is required for EdgeTPU acceleration
+
+** Project Structure
+- Basic Poetry project structure is in place
+- Poetry configuration has been updated with proper dependencies
+
+* Action Items
+** TensorFlow Lite Runtime Downgrade
+#+begin_src bash
+pip install https://github.com/google-coral/pycoral/releases/download/v2.0.0/tflite_runtime-2.5.0.post1-cp39-cp39-linux_aarch64.whl
+#+end_src
+
+** Verify Coral USB Connection
+- Check physical connection
+- Run =lsusb= to verify device is recognized
+- Verify proper permissions
+
+** Update Poetry Environment
+#+begin_src bash
+poetry install
+#+end_src
+
+* Completed Tasks
+** Remote Repository Changed
+- Changed remote from Google Coral to your fork: =https://github.com/aygp-dr/project-keyword-spotter.git=
+- Added jwalsh as collaborator to the repository
+
+** Poetry Configuration Updated
+- Updated pyproject.toml with proper Poetry format
+- Added required dependencies with specific versions compatible with Edge TPU
+
+** Project Structure Created
+- Added =project_keyword_spotter= package directory
+- Created diagnostic script for checking Edge TPU setup
+
+* Edge TPU Library Status
+- Edge TPU library is properly installed at =/usr/lib/aarch64-linux-gnu/libedgetpu.so.1=
+- Python environment is compatible (3.9.18)
+
+* Next Steps
+1. Downgrade TensorFlow Lite Runtime to version 2.5.0.post1
+2. Connect and verify Coral USB Accelerator
+3. Run the model with =python3 run_model.py= to test complete setup
