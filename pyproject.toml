@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "project-keyword-spotter"
+version = "0.1.0"
+description = "Edge TPU keyword spotter using TensorFlow Lite"
+authors = ["Aidan Pace <apace@defrecord.com>"]
+readme = "README.md"
+packages = [{include = "project_keyword_spotter"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.10"
+numpy = "^2.0.2"
+pyaudio = "^0.2.14"
+pygame = "^2.6.1"
+PyUserInput = "^0.1.11"
+scipy = "^1.10.1"
+# tflite-runtime = "2.5.0.post1"
+tflite-runtime = {url = "https://github.com/google-coral/pycoral/releases/download/v2.0.0/tflite_runtime-2.5.0.post1-cp39-cp39-linux_aarch64.whl"}
+pillow = "^10.2.0"
+click = "^8.1.8"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
