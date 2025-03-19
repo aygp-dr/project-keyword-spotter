@@ -1,0 +1,71 @@
+#+TITLE: Project Configuration for Claude
+#+AUTHOR: Claude
+#+DATE: 2025-03-19
+
+* Build & Test Commands
+:PROPERTIES:
+:tangle: yes
+:mkdirp: yes
+:END:
+
+- Build/install: ~poetry install~
+- Run tests: ~python -m project_keyword_spotter.test_coral_inference~
+- Run single test: ~python -m project_keyword_spotter.test_coral_inference --model path/to/model.tflite --labels path/to/labels.txt --image path/to/image.jpg~
+- Run model: ~python3 run_model.py~
+- Run demos:
+  - Snake game: ~python3 run_hearing_snake.py~ or ~bash run_snake.sh~
+  - YouTube control: ~python3 run_yt_voice_control.py~ or ~bash run_yt_voice_control.sh~
+  - Log analyzer: ~./run_log_analyzer.sh~
+
+* Code Style Guidelines
+:PROPERTIES:
+:tangle: yes
+:END:
+
+** Imports
+- Standard library first, then third-party, then local modules
+- Use blank lines between import groups
+- Sort alphabetically within each group
+
+** Formatting
+- Follow Google Python Style Guide
+- Use 2-space indentation
+- Maximum line length of 80 characters
+
+** Types & Documentation
+- Use Google-style docstrings to document types and function behavior
+- Include type hints in docstrings for parameters and return values
+
+** Naming Conventions
+- ~snake_case~ for functions, methods, and variables
+- ~CamelCase~ for classes
+- ~UPPER_CASE~ for constants
+
+** Error Handling
+- Use specific exceptions in try/except blocks
+- Include informative error messages
+- Log errors with appropriate severity
+
+** Logging
+- Use the ~logging~ module instead of print statements
+- Set appropriate log levels (~DEBUG~, ~INFO~, ~WARNING~, ~ERROR~)
+
+* Project Structure
+:PROPERTIES:
+:tangle: yes
+:END:
+
+- Models stored in ~/models/~ directory
+- Configuration files in ~/config/~ directory
+- Python package in ~/project_keyword_spotter/~
+- Main demo scripts in project root
+
+* Development Environment
+:PROPERTIES:
+:tangle: yes
+:END:
+
+- Python 3.9 (see pyproject.toml constraints)
+- Poetry for dependency management
+- Edge TPU runtime for inference
+- Raspberry Pi (aarch64) as primary target platform
